@@ -2,7 +2,7 @@ package interfaces;
 
 import figures.Vertex2D;
 
-public interface PrimitivePainter {
+public interface PrimitivesPainter {
 	public void paintPoint(Vertex2D v);
 	public void paintLine(Vertex2D v0, Vertex2D v1);
 	public void paintCircle(Vertex2D center, double radie);

@@ -3,9 +3,9 @@ package gui;
 import java.awt.Graphics;
 
 import figures.Vertex2D;
-import interfaces.PrimitivePainter;
+import interfaces.PrimitivesPainter;
 
-public class PrimitivePainterImpl implements PrimitivePainter{
+public class PrimitivesPainterImpl implements PrimitivesPainter{
 	private Graphics g;
 	
 	public void setGraphics(Graphics g){
