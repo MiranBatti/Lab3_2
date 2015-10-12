@@ -54,6 +54,7 @@ class DrawingPanel extends JPanel implements MouseListener
 		// Rit-exempel: Ritar ut en linje från pixel med position (10, 10)
 		// till pixel med position (790, 590):
 		g2.drawLine (200, 200, 1000, 800);
+		g2.fillOval((int)300, (int)300, 3, 3);
 	}
 
 	@Override

@@ -14,34 +14,30 @@ public class PrimitivesPainterImpl implements PrimitivesPainter{
 
 	@Override
 	public void paintPoint(Vertex2D v) {
-		// TODO Auto-generated method stub
-		
+		g.fillOval( (int) v.getX(), (int) v.getY(), 3, 3);
 	}
 
 	@Override
 	public void paintLine(Vertex2D v0, Vertex2D v1) {
-		// TODO Auto-generated method stub
-		
+		g.drawLine( (int) v0.getX(), (int) v0.getY(), (int) v1.getY(), (int) v1.getY());
 	}
 
 	@Override
 	public void paintCircle(Vertex2D center, double radie) {
-		// TODO Auto-generated method stub
-		
+		g.drawOval( (int) center.getX(), (int) center.getY(), (int) radie, (int) radie);
 	}
 
 	@Override
-	public void paintRectangle(Vertex2D center, Vertex2D v0, Vertex2D v1,
-			Vertex2D v2, Vertex2D v3) {
-		// TODO Auto-generated method stub
-		
+	public void paintRectangle(Vertex2D center, double height, double width) {
+		g.drawRect( (int) center.getX(), (int) center.getY(), (int) height, (int) width);
 	}
 
 	@Override
 	public void paintTriangle(Vertex2D center, Vertex2D v0, Vertex2D v1,
 			Vertex2D v2) {
-		// TODO Auto-generated method stub
-		
+		g.drawLine( (int) v0.getX(), (int) v0.getY(), (int) v1.getY(), (int) v1.getY());
+		g.drawLine( (int) v0.getX(), (int) v0.getY(), (int) v2.getY(), (int) v2.getY());
+		g.drawLine( (int) v1.getX(), (int) v1.getY(), (int) v2.getY(), (int) v2.getY());
 	}
 
 }

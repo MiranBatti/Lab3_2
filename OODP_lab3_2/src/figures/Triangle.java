@@ -1,9 +1,11 @@
 package figures;
 
+import interfaces.Drawable;
+import interfaces.PrimitivesPainter;
 import interfaces.Rotatable;
 import interfaces.Scalable;
 
-public class Triangle extends FigureType implements Rotatable, Scalable{
+public class Triangle extends FigureType implements Rotatable, Scalable, Drawable{
 	
 	private Vertex2D center;
 	
@@ -124,5 +126,10 @@ public class Triangle extends FigureType implements Rotatable, Scalable{
 			return false;
 		Triangle tri = (Triangle) objecjt;
 		return (tri.getV0() == getV0() && tri.getV1() == getV1() && tri.getV2() == getV2());
+	}
+
+	@Override
+	public void draw(PrimitivesPainter ppaint) {
+		ppaint.paintTriangle(center, vertex2DArray.get(0), vertex2DArray.get(1), vertex2DArray.get(2));
 	}
 }

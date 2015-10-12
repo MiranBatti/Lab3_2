@@ -1,8 +1,10 @@
 package figures;
 
+import interfaces.Drawable;
+import interfaces.PrimitivesPainter;
 import interfaces.Scalable;
 
-public class Circle extends FigureType implements Scalable{
+public class Circle extends FigureType implements Scalable, Drawable{
 	
 	private Vertex2D center, p0;
 	private double radius;
@@ -30,7 +32,7 @@ public class Circle extends FigureType implements Scalable{
 	 * Retunerar cirkelns radie
 	 * @return
 	 */
-	public double getRadie() {
+	public double getRadius() {
 		return radius;
 	}
 	
@@ -72,7 +74,7 @@ public class Circle extends FigureType implements Scalable{
 	 */
 	@Override
 	public String toString() {
-		return ("Circle: Center: " + getCenter() + ", Radie: " + getRadie());
+		return ("Circle: Center: " + getCenter() + ", Radie: " + getRadius());
 	}
 	
 	/** 
@@ -83,6 +85,11 @@ public class Circle extends FigureType implements Scalable{
 		if (!(objecjt instanceof Vertex2D))
 			return false;
 		Circle circle = (Circle) objecjt;
-		return (circle.getCenter() == getCenter() && circle.getRadie() == getRadie());
+		return (circle.getCenter() == getCenter() && circle.getRadius() == getRadius());
+	}
+
+	@Override
+	public void draw(PrimitivesPainter ppaint) {
+		ppaint.paintCircle(center, radius);
 	}
 }

@@ -25,7 +25,7 @@ public class CircleTest {
 	public void testVertexPositions() {
 		assertEquals("Wrong x position", 2, circle.getCenter().getX(), 0.0001);
 		assertEquals("Wrong y position", 1, circle.getCenter().getY(), 0.0001);
-		assertEquals("Wrong radius", 1, circle.getRadie(), 0.0001);
+		assertEquals("Wrong radius", 1, circle.getRadius(), 0.0001);
 	}
 	
 	@Test
@@ -40,6 +40,6 @@ public class CircleTest {
 		circle.scale(1.21, 1.21);
 		assertEquals("Error: ScaleX", 2, circle.getCenter().getX(), 0.0001);
 		assertEquals("Error: ScaleY", 1, circle.getCenter().getY(), 0.0001);
-		assertEquals("Error: Radius", 1.21, circle.getRadie(), 0.0001);
+		assertEquals("Error: Radius", 1.21, circle.getRadius(), 0.0001);
 	}
 }

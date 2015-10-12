@@ -1,11 +1,14 @@
 package figures;
 
+import interfaces.Drawable;
+import interfaces.PrimitivesPainter;
 import interfaces.Rotatable;
 import interfaces.Scalable;
 
-public class Rectangle extends FigureType implements Rotatable, Scalable {
+public class Rectangle extends FigureType implements Rotatable, Scalable, Drawable {
 	
 	private Vertex2D center;
+	private double height, width;
 	
 	/**
 	 * Konstruktor som tar höjd, bredd och centrum för att skapa en rektangel
@@ -15,6 +18,8 @@ public class Rectangle extends FigureType implements Rotatable, Scalable {
 	 */
 	public Rectangle(double height, double width, double centerX, double centerY) {
 		center = new Vertex2D(centerX, centerY);
+		this.height = height;
+		this.width = width;
 		vertex2DArray.add(new Vertex2D((center.getX() - (width / 2)), (center.getY() + (height / 2))));
 		vertex2DArray.add(new Vertex2D((center.getX() + (width / 2)), (center.getY() + (height / 2))));
 		vertex2DArray.add(new Vertex2D((center.getX() - (width / 2)), (center.getY() - (height / 2))));
@@ -51,6 +56,22 @@ public class Rectangle extends FigureType implements Rotatable, Scalable {
 	 */
 	public Vertex2D getV3() {
 		return vertex2DArray.get(3);
+	}
+	
+	/**
+	 * Returns height of rectangle
+	 * @return
+	 */
+	public double getHeight() {
+		return height;
+	}
+	
+	/**
+	 * Returns width of rectangle
+	 * @return
+	 */
+	public double getWidth() {
+		return width;
 	}
 
 	/**
@@ -116,5 +137,10 @@ public class Rectangle extends FigureType implements Rotatable, Scalable {
 			return false;
 		Rectangle rec = (Rectangle) objecjt;
 		return (rec.getV0() == getV0() && rec.getV1() == getV1() && rec.getV2() == getV2() && rec.getV3() == getV3());
+	}
+
+	@Override
+	public void draw(PrimitivesPainter ppaint) {
+		ppaint.paintRectangle(center, height, width);
 	}
 }

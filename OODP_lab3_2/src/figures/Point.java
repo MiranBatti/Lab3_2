@@ -1,6 +1,9 @@
 package figures;
 
-public class Point extends FigureType {
+import interfaces.Drawable;
+import interfaces.PrimitivesPainter;
+
+public class Point extends FigureType implements Drawable{
 	
 	private Vertex2D v;
 	
@@ -54,5 +57,10 @@ public class Point extends FigureType {
 			return false;
 		Point point = (Point) objecjt;
 		return (point.getV() == getV());
+	}
+
+	@Override
+	public void draw(PrimitivesPainter ppaint) {
+		ppaint.paintPoint(v);
 	}
 }

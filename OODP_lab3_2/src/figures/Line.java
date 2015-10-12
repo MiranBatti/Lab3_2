@@ -1,9 +1,11 @@
 package figures;
 
+import interfaces.Drawable;
+import interfaces.PrimitivesPainter;
 import interfaces.Rotatable;
 import interfaces.Scalable;
 
-public class Line extends FigureType implements Rotatable, Scalable {
+public class Line extends FigureType implements Rotatable, Scalable, Drawable {
 	
 	private Vertex2D center;
 	
@@ -96,5 +98,10 @@ public class Line extends FigureType implements Rotatable, Scalable {
 			return false;
 		Line line = (Line) objecjt;
 		return (line.getV0() == getV0() && line.getV0() == getV0());
+	}
+
+	@Override
+	public void draw(PrimitivesPainter ppaint) {
+		ppaint.paintLine(vertex2DArray.get(0), vertex2DArray.get(1));
 	}
 }
