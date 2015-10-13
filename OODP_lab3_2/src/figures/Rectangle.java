@@ -20,8 +20,8 @@ public class Rectangle extends FigureType implements Rotatable, Scalable, Drawab
 		center = new Vertex2D(centerX, centerY);
 		this.height = height;
 		this.width = width;
-		vertex2DArray.add(new Vertex2D((center.getX() - (width / 2)), (center.getY() + (height / 2)))); // Upper left vertex
 		vertex2DArray.add(new Vertex2D((center.getX() + (width / 2)), (center.getY() + (height / 2)))); // Upper right vertex
+		vertex2DArray.add(new Vertex2D((center.getX() - (width / 2)), (center.getY() + (height / 2)))); // Upper left vertex
 		vertex2DArray.add(new Vertex2D((center.getX() - (width / 2)), (center.getY() - (height / 2)))); // Lower left vertex
 		vertex2DArray.add(new Vertex2D((center.getX() + (width / 2)), (center.getY() - (height / 2)))); // Lower right vertex
 	}
@@ -148,7 +148,7 @@ public class Rectangle extends FigureType implements Rotatable, Scalable, Drawab
 	@Override
 	public void draw(PrimitivesPainter ppaint) {
 //		ppaint.paintRectangle(center, getV0().dist(getV3()), getV0().dist(getV2()));
-		ppaint.paintRectangle(center, height, width);
+		ppaint.paintRectangle(vertex2DArray);
 	}
 	
 	private void calculateCenter() {

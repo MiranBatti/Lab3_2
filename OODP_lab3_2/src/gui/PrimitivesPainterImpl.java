@@ -29,13 +29,12 @@ public class PrimitivesPainterImpl implements PrimitivesPainter{
 	public void paintCircle(Vertex2D center, double radie) {
 		g.drawOval( (int) center.getX(), (int) center.getY(), (int) radie, (int) radie);
 	}
-
+/*
 	@Override
 	public void paintRectangle(Vertex2D center, double height, double width) {
 		g.drawRect( (int) center.getX(), (int) center.getY(), (int) width, (int) height);
-	}
+	}*/
 	
-	/*
 	@Override
 	public void paintRectangle(ArrayList<Vertex2D> v) {
 		int xPoints[] = new int[v.size()];
@@ -51,7 +50,6 @@ public class PrimitivesPainterImpl implements PrimitivesPainter{
 		g.setColor(Color.BLUE);
 		g.fillPolygon(xPoints, yPoints, nPoints);
 	}
-	*/
 	
 	@Override
 	public void paintTriangle(ArrayList<Vertex2D> v) {		
