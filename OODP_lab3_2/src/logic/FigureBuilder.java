@@ -1,17 +1,22 @@
 package logic;
 
+import gui.PrimitivesPainterImpl;
+
 public class FigureBuilder {
 	private FigureHandlerImpl handlerImpl;
 	private FigureMoverImpl moverImpl;
 	private FigurePrinterImpl printerImpl;
 	private FigureRotorImpl rotorImpl;
 	private FigureScalorImpl scalorImpl;
+	private FigurePainterImpl painterImpl;
+	private PrimitivesPainterImpl ppainter;
 	
 	/**
 	 * Initilize FigureHandlerImpl för att undvika error
 	 */
 	public FigureBuilder() {
 		handlerImpl = new FigureHandlerImpl();
+		ppainter = new PrimitivesPainterImpl();
 	}
 	
 	/**
@@ -56,5 +61,14 @@ public class FigureBuilder {
 	public FigureScalorImpl getFigureScalorImpl() {
 		scalorImpl = new FigureScalorImpl(handlerImpl.getScalableFigures());
 		return scalorImpl;
+	}
+	
+	public FigurePainterImpl getFigurePainterImpl() {
+		painterImpl = new FigurePainterImpl(handlerImpl.getDrawableFigures(), ppainter);
+		return painterImpl;
+	}
+	
+	public PrimitivesPainterImpl getPrimitivesPainter() {
+		return ppainter;
 	}
 }

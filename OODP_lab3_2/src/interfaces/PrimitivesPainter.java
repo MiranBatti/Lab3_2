@@ -1,5 +1,7 @@
 package interfaces;
 
+import java.util.ArrayList;
+
 import figures.Vertex2D;
 
 public interface PrimitivesPainter {
@@ -7,5 +9,6 @@ public interface PrimitivesPainter {
 	public void paintLine(Vertex2D v0, Vertex2D v1);
 	public void paintCircle(Vertex2D center, double radie);
 	public void paintRectangle(Vertex2D center, double height, double width);
-	public void paintTriangle(Vertex2D center, Vertex2D v0, Vertex2D v1, Vertex2D v2);
+//	public void paintRectangle(ArrayList<Vertex2D> v);
+	public void paintTriangle(ArrayList<Vertex2D> v);
 }

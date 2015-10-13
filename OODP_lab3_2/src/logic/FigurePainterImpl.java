@@ -4,19 +4,23 @@ import interfaces.FigurePainter;
 
 import java.util.List;
 
+import gui.PrimitivesPainterImpl;
 import interfaces.Drawable;
 
 public class FigurePainterImpl implements FigurePainter{
 	
-	public List<Drawable> drawableList;
+	List<Drawable> drawableList;
+	PrimitivesPainterImpl ppainter;
 	
-	public FigurePainterImpl(List<Drawable> drawableList){
+	public FigurePainterImpl(List<Drawable> drawableList, PrimitivesPainterImpl ppainter){
 		this.drawableList = drawableList;
+		this.ppainter = ppainter;
 	}
 
 	@Override
 	public void paintAll() {
 		for (Drawable drawable : drawableList) {
+			drawable.draw(ppainter);
 		}
 	}
 

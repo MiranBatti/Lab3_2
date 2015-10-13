@@ -9,6 +9,7 @@ import figures.Line;
 import figures.Point;
 import figures.Rectangle;
 import figures.Triangle;
+import interfaces.Drawable;
 import interfaces.FigureHandler;
 import interfaces.Rotatable;
 import interfaces.Scalable;
@@ -18,15 +19,17 @@ public class FigureHandlerImpl implements FigureHandler {
 	List<FigureType> figures = new ArrayList<FigureType>();
 	List<Rotatable> rotatableFigures = new ArrayList<Rotatable>();
 	List<Scalable> scalableFigures = new ArrayList<Scalable>();
+	List<Drawable> drawableFigures = new ArrayList<Drawable>();
 	
 	/**
 	 * Skapar en cirkel och lägger den i arrayen klassen använder
 	 */
 	@Override
 	public void createCircle(double x, double y, double radius) {
-		Circle circ = new Circle(x, y, radius);
-		figures.add(circ);
-		scalableFigures.add(circ);
+		Circle circle = new Circle(x, y, radius);
+		figures.add(circle);
+		scalableFigures.add(circle);
+		drawableFigures.add(circle);
 	}
 	
 	/**
@@ -38,6 +41,7 @@ public class FigureHandlerImpl implements FigureHandler {
 		figures.add(line);
 		rotatableFigures.add(line);
 		scalableFigures.add(line);
+		drawableFigures.add(line);
 	}
 	
 	/**
@@ -45,7 +49,9 @@ public class FigureHandlerImpl implements FigureHandler {
 	 */
 	@Override
 	public void createPoint(double x, double y) {
-		figures.add(new Point(x, y));
+		Point point = new Point(x, y);
+		figures.add(point);
+		drawableFigures.add(point);
 	}
 
 	/**
@@ -57,6 +63,7 @@ public class FigureHandlerImpl implements FigureHandler {
 		figures.add(rectangle);
 		rotatableFigures.add(rectangle);
 		scalableFigures.add(rectangle);
+		drawableFigures.add(rectangle);
 	}
 
 	/**
@@ -68,6 +75,7 @@ public class FigureHandlerImpl implements FigureHandler {
 		figures.add(tri);
 		rotatableFigures.add(tri);
 		scalableFigures.add(tri);
+		drawableFigures.add(tri);
 	}
 
 	/**
@@ -92,5 +100,9 @@ public class FigureHandlerImpl implements FigureHandler {
 	
 	public List<Scalable> getScalableFigures() {
 		return scalableFigures;
+	}
+	
+	public List<Drawable> getDrawableFigures() {
+		return drawableFigures;
 	}
 }

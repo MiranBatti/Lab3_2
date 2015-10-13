@@ -130,6 +130,6 @@ public class Triangle extends FigureType implements Rotatable, Scalable, Drawabl
 
 	@Override
 	public void draw(PrimitivesPainter ppaint) {
-		ppaint.paintTriangle(center, vertex2DArray.get(0), vertex2DArray.get(1), vertex2DArray.get(2));
+		ppaint.paintTriangle(this.vertex2DArray);
 	}
 }

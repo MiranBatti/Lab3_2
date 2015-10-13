@@ -35,7 +35,7 @@ public class ControlPanel extends JPanel
 	public ControlPanel (DrawingPanel dp)
 	{
 		this.dp = dp;
-		build = new FigureBuilder();
+		build = dp.getFigureBuilder();
 		
 		JButton rotatePlusButton = new JButton("Rotate+");
 		JButton rotateMinusButton = new JButton("Rotate-");
@@ -148,7 +148,7 @@ public class ControlPanel extends JPanel
 		public void actionPerformed(ActionEvent e)
 		{
 			// Flytta i positiv y-riktning med avstånd (0.0, 0.5)
-			build.getFigureMoverImpl().moveAll(0, 0.5);
+			build.getFigureMoverImpl().moveAll(0, -0.5);
 			build.getFigurePrinterImpl().printAll();
 			dp.repaint();
 		}	
@@ -160,7 +160,7 @@ public class ControlPanel extends JPanel
 		public void actionPerformed(ActionEvent e)
 		{
 			// Flytta i negativ y-riktning med avstånd (0.0, -0.5)
-			build.getFigureMoverImpl().moveAll(0, -0.5);
+			build.getFigureMoverImpl().moveAll(0, 0.5);
 			build.getFigurePrinterImpl().printAll();
 			dp.repaint();
 		}	
@@ -263,9 +263,9 @@ public class ControlPanel extends JPanel
 			double x = dc.createDoubleDialog(mx);
 			double y = dc.createDoubleDialog(my);
 			double radius = dc.createDoubleDialog(myRadius);
-			
 			// Skapa en ny cirkel genom att anropa motsvarande metoden
 			// FigureHandler-objektet.
+			
 			build.getFigureHandlerImpl().createCircle(x, y, radius);
 			build.getFigurePrinterImpl().printAll();
 			dp.repaint();
