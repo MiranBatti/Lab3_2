@@ -1,4 +1,4 @@
-package gui;
+package logic;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -9,7 +9,7 @@ import interfaces.PrimitivesPainter;
 
 public class PrimitivesPainterImpl implements PrimitivesPainter{
 	private Graphics g;
-	private double presetPointDiameter = 3;
+	private double presetPointDiameter = 5;
 	
 	public void setGraphics(Graphics g){
 		this.g = g;
@@ -22,18 +22,16 @@ public class PrimitivesPainterImpl implements PrimitivesPainter{
 
 	@Override
 	public void paintLine(Vertex2D v0, Vertex2D v1) {
+		g.setColor(Color.PINK);
 		g.drawLine( (int) v0.getX(), (int) v0.getY(), (int) v1.getY(), (int) v1.getY());
 	}
 
 	@Override
 	public void paintCircle(Vertex2D center, double radie) {
+		g.setColor(Color.YELLOW);
 		g.drawOval( (int) center.getX(), (int) center.getY(), (int) radie, (int) radie);
+		g.fillOval((int) center.getX(), (int) center.getY(), (int) radie, (int) radie);
 	}
-/*
-	@Override
-	public void paintRectangle(Vertex2D center, double height, double width) {
-		g.drawRect( (int) center.getX(), (int) center.getY(), (int) width, (int) height);
-	}*/
 	
 	@Override
 	public void paintRectangle(ArrayList<Vertex2D> v) {

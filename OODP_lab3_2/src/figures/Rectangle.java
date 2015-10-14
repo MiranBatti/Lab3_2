@@ -8,7 +8,6 @@ import interfaces.Scalable;
 public class Rectangle extends FigureType implements Rotatable, Scalable, Drawable {
 	
 	private Vertex2D center;
-	private double height, width;
 	
 	/**
 	 * Konstruktor som tar höjd, bredd och centrum för att skapa en rektangel
@@ -18,8 +17,6 @@ public class Rectangle extends FigureType implements Rotatable, Scalable, Drawab
 	 */
 	public Rectangle(double height, double width, double centerX, double centerY) {
 		center = new Vertex2D(centerX, centerY);
-		this.height = height;
-		this.width = width;
 		vertex2DArray.add(new Vertex2D((center.getX() + (width / 2)), (center.getY() + (height / 2)))); // Upper right vertex
 		vertex2DArray.add(new Vertex2D((center.getX() - (width / 2)), (center.getY() + (height / 2)))); // Upper left vertex
 		vertex2DArray.add(new Vertex2D((center.getX() - (width / 2)), (center.getY() - (height / 2)))); // Lower left vertex
@@ -57,22 +54,6 @@ public class Rectangle extends FigureType implements Rotatable, Scalable, Drawab
 	public Vertex2D getV3() {
 		return vertex2DArray.get(3);
 	}
-	
-	/**
-	 * Returns height of rectangle
-	 * @return
-	 */
-	public double getHeight() {
-		return height;
-	}
-	
-	/**
-	 * Returns width of rectangle
-	 * @return
-	 */
-	public double getWidth() {
-		return width;
-	}
 
 	/**
 	 * Retunerar centrum av rektangeln
@@ -96,8 +77,7 @@ public class Rectangle extends FigureType implements Rotatable, Scalable, Drawab
 			Vertex2D _vertex2D = vertex2DArray.get(i).rotate(center, angle);
 			vertex2DArray.set(i, _vertex2D);
 		}
-		calculateHeight();
-		calculateWidht();
+
 	}
 	
 	/**
@@ -113,8 +93,7 @@ public class Rectangle extends FigureType implements Rotatable, Scalable, Drawab
 			Vertex2D _vertex2D = vertex2DArray.get(i).scale(center, factor_x, factor_y);
 			vertex2DArray.set(i, _vertex2D);
 		}
-		calculateHeight();
-		calculateWidht();
+
 	}
 	
 	@Override
@@ -175,12 +154,6 @@ public class Rectangle extends FigureType implements Rotatable, Scalable, Drawab
 		center = new Vertex2D(minX + ((maxX-minX) / 2), minY + ((maxY-minY) / 2));
 	}
 	
-	private void calculateHeight() {
-		height = getV0().dist(getV2());
-	}
-	
-	private void calculateWidht() {
-		width = getV0().dist(getV1());
-	}
+
 	
 }

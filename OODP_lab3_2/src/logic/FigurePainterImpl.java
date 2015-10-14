@@ -4,7 +4,6 @@ import interfaces.FigurePainter;
 
 import java.util.List;
 
-import gui.PrimitivesPainterImpl;
 import interfaces.Drawable;
 
 public class FigurePainterImpl implements FigurePainter{

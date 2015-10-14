@@ -1,7 +1,5 @@
 package logic;
 
-import gui.PrimitivesPainterImpl;
-
 public class FigureBuilder {
 	private FigureHandlerImpl handlerImpl;
 	private FigureMoverImpl moverImpl;
@@ -63,11 +61,19 @@ public class FigureBuilder {
 		return scalorImpl;
 	}
 	
+	/**
+	 * Returnerar FigurePainterImpl objekt
+	 * @return
+	 */
 	public FigurePainterImpl getFigurePainterImpl() {
 		painterImpl = new FigurePainterImpl(handlerImpl.getDrawableFigures(), ppainter);
 		return painterImpl;
 	}
 	
+	/**
+	 * Returnerar PrimitivesPainter objekt
+	 * @return
+	 */
 	public PrimitivesPainterImpl getPrimitivesPainter() {
 		return ppainter;
 	}
