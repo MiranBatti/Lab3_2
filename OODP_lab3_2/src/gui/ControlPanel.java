@@ -65,6 +65,7 @@ public class ControlPanel extends JPanel
 		newCircleButton.addActionListener(new NewCircleListener());
 		newTriangleButton.addActionListener(new NewTriangleListener());
 		
+		
 		add(rotatePlusButton);
 		add(rotateMinusButton);
 		add(scaleUpButton);

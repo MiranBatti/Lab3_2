@@ -32,6 +32,7 @@ class DrawingPanel extends JPanel implements MouseListener
 	// - Lägg till kod för att tilldela och lagra en instans PrimitivesPainter.
 	// - Tilldela PrimitivesPainter-instansen till FigurePainter-instansen.
 	FigureBuilder build = new FigureBuilder();
+	Graphics2D g2;
 		
 	/**
 	 * Skapar en ny instans av DrawingPanel.
@@ -50,7 +51,11 @@ class DrawingPanel extends JPanel implements MouseListener
 	public FigureBuilder getFigureBuilder() {
 		return build;
 	}
-
+	
+	public Graphics2D getGraphics2D() {
+		return g2;
+	}
+	
 	/**
 	 * Ritar ut grafiska elementen på nytt.
 	 * 
@@ -59,7 +64,7 @@ class DrawingPanel extends JPanel implements MouseListener
 	 */
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		Graphics2D g2 = (Graphics2D) g; 
+		g2 = (Graphics2D) g; 
 		// Tilldela g2-objektet till PrimitivesPainter-instansen
 		// Anrop rit-metoden i FigurePainter-instansen.
 		build.getPrimitivesPainter().setGraphics(g2);

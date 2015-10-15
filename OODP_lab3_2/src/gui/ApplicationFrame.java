@@ -11,14 +11,21 @@ package gui;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.HeadlessException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class ApplicationFrame extends JFrame
 {
 	DrawingPanel drawingPanel;
+	
 	
 	public ApplicationFrame (String title) throws HeadlessException
 	{
@@ -36,9 +43,20 @@ public class ApplicationFrame extends JFrame
 		drawingPanel = new DrawingPanel();
 		
 		ControlPanel controlPanel = new ControlPanel(drawingPanel);
+		JMenuBar menubar = new JMenuBar();
+		JMenu fileMenu = new JMenu("File");		
+		JMenuItem exportPNG = new JMenuItem("Export PNG");
+		JMenuItem exportJPEG = new JMenuItem("Export JPEG");
 		
 		mainPanel.add(drawingPanel, BorderLayout.CENTER);
 		mainPanel.add(controlPanel, BorderLayout.SOUTH);
+		
+		// Creates a menubar
+		menubar.add(fileMenu);
+		fileMenu.add(exportJPEG);
+		fileMenu.add(exportPNG);
+		setJMenuBar(menubar);
+		exportJPEG.addActionListener(new ExportJPEGListener());
 
 		pack();
 		setVisible(true);
@@ -47,4 +65,17 @@ public class ApplicationFrame extends JFrame
 	// Uppgifter:
 	// Skapa metoder som kan användas för att tilldela handler-objekt
 	// till ControlPanel-instansen.
+	private class ExportJPEGListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			ImageExport ie = new ImageExport(drawingPanel);
+			try {
+				ie.exportJPEG();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}	
+	}
 }

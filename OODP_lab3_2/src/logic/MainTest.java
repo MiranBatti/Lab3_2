@@ -1,6 +1,6 @@
 package logic;
 
-public class Main {
+public class MainTest {
 
 	public static void main(String[] args) {
 		FigureBuilder b = new FigureBuilder();

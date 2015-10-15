@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import figures.Vertex2D;
 import interfaces.PrimitivesPainter;
 
-public class PrimitivesPainterImpl implements PrimitivesPainter{
+public class PrimitivesPainterImpl implements PrimitivesPainter {
 	private Graphics g;
 	private double presetPointDiameter = 5;
 	
@@ -17,7 +17,7 @@ public class PrimitivesPainterImpl implements PrimitivesPainter{
 
 	@Override
 	public void paintPoint(Vertex2D v) {
-		g.fillOval( (int) v.getX(), (int) v.getY(), (int) presetPointDiameter, (int) presetPointDiameter);
+		g.drawOval( (int) v.getX(), (int) v.getY(), (int) presetPointDiameter, (int) presetPointDiameter);
 	}
 
 	@Override
@@ -30,7 +30,6 @@ public class PrimitivesPainterImpl implements PrimitivesPainter{
 	public void paintCircle(Vertex2D center, double radie) {
 		g.setColor(Color.YELLOW);
 		g.drawOval( (int) center.getX(), (int) center.getY(), (int) radie, (int) radie);
-		g.fillOval((int) center.getX(), (int) center.getY(), (int) radie, (int) radie);
 	}
 	
 	@Override
@@ -44,9 +43,8 @@ public class PrimitivesPainterImpl implements PrimitivesPainter{
 			yPoints[i] = (int) v.get(i).getY();
 		}		
 	
+		g.setColor(Color.BLUE);		
 		g.drawPolygon(xPoints, yPoints, nPoints);
-		g.setColor(Color.BLUE);
-		g.fillPolygon(xPoints, yPoints, nPoints);
 	}
 	
 	@Override
@@ -59,9 +57,8 @@ public class PrimitivesPainterImpl implements PrimitivesPainter{
 			xPoints[i] = (int) v.get(i).getX();
 			yPoints[i] = (int) v.get(i).getY();
 		}		
+		g.setColor(Color.RED);	
 		g.drawPolygon(xPoints, yPoints, nPoints);
-		g.setColor(Color.RED);
-		g.fillPolygon(xPoints, yPoints, nPoints);
 	}
 	
 }
